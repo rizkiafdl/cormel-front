@@ -14,6 +14,7 @@ import {
     Squares2X2Icon,
 } from "@heroicons/react/24/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 interface NavItemPropsType {
     children: React.ReactNode;
@@ -36,6 +37,7 @@ function NavItem({ children }: NavItemPropsType) {
 }
 
 function HeroSection() {
+    const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen((cur) => !cur);
 
@@ -51,28 +53,22 @@ function HeroSection() {
             <Navbar shadow={true} fullWidth className="border-0">
                 <div className="container mx-auto flex items-center justify-between">
                     <Typography color="gray" className="text-lg font-bold">
-                        Material Tailwind
+                        Cormel
                     </Typography>
                     <ul className="ml-10 hidden items-center gap-6 lg:flex">
                         <NavItem>
                             <RectangleStackIcon className="h-5 w-5" />
-                            Pages
-                        </NavItem>
-                        <NavItem>
-                            <UserCircleIcon className="h-5 w-5" />
-                            Account
+                            About
                         </NavItem>
                         <NavItem>
                             <Squares2X2Icon className="h-5 w-5" />
                             Blocks
                         </NavItem>
-                        <NavItem>
-                            <CommandLineIcon className="h-5 w-5" />
-                            Docs
-                        </NavItem>
                     </ul>
                     <div className="hidden items-center gap-4 lg:flex">
-                        <Button variant="text">Log in</Button>
+                        <Button
+                            onClick={() => navigate("/login")}
+                            variant="text">Log in</Button>
                         <Button color="gray">buy now</Button>
                     </div>
                     <IconButton
@@ -109,14 +105,16 @@ function HeroSection() {
                             </NavItem>
                         </ul>
                         <div className="mt-6 mb-4 flex items-center gap-4">
-                            <Button variant="text">Log in</Button>
+                            <Button
+                                onClick={() => navigate("/login")}
+                                variant="text">Log in</Button>
                             <Button color="gray">buy now</Button>
                         </div>
                     </div>
                 </Collapse>
             </Navbar>
             <header className="bg-white p-8">
-                <div className="bg-blue-500">
+                <div className="bg-white-500">
                     <div className="container mx-auto px-4 text-center">
 
                         <Typography

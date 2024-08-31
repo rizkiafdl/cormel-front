@@ -1,5 +1,5 @@
 import MyCourse from "@Components/UserDashboardComponents/MyCourse"
-import MainDashboard from "@Layouts/MainDashboard"
+import MainDashboard from "@/Layouts/MainDashboardLayouts"
 
 
 

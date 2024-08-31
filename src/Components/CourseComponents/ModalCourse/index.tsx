@@ -10,10 +10,12 @@ import {
 } from '@material-tailwind/react';
 import { useAtom } from 'jotai';
 import { openAtom, selectedCourseAtom } from '@/Jotai/atoms';
+import { useNavigate } from 'react-router-dom';
 
 function CourseModal() {
     const [open, setOpen] = useAtom(openAtom);
     const [selectedCourse] = useAtom(selectedCourseAtom);
+    const navigate = useNavigate();
 
     const handleClose = () => {
         setOpen(false);
@@ -38,6 +40,9 @@ function CourseModal() {
                 </Typography>
             </DialogBody>
             <DialogFooter>
+                <Button variant="text" color="black" onClick={() => navigate("/course/:detail")} className="mr-1">
+                    Go To Course
+                </Button>
                 <Button variant="text" color="red" onClick={handleClose} className="mr-1">
                     Close
                 </Button>

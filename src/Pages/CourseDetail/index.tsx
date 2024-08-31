@@ -1,6 +1,13 @@
+import { CourseVideoPlayer } from "@/Components/CourseComponents/CourseVideoPlayer"
+import CourseDetailLayouts from "@/Layouts/CourseDetailLayouts"
+
 const CourseDetail = () => {
     return (
-        <div>CourseDetail</div>
+        <div>
+            <CourseDetailLayouts>
+                <CourseVideoPlayer />
+            </CourseDetailLayouts>
+        </div>
     )
 }
 

@@ -2,11 +2,10 @@ import React from "react";
 import { SidebarDark } from "@Components/Sidebar";
 // Adjust the import path as needed
 
-interface MainDashboardProps {
+interface CourseDetailLayoutsProps {
     children: React.ReactNode;
 }
-
-export function MainDashboard({ children }: MainDashboardProps) {
+const CourseDetailLayouts = ({ children }: CourseDetailLayoutsProps) => {
     return (
         <section className="grid grid-cols-8 h-screen">
             {/* Sidebar */}
@@ -22,4 +21,4 @@ export function MainDashboard({ children }: MainDashboardProps) {
     );
 }
 
-export default MainDashboard;
+export default CourseDetailLayouts

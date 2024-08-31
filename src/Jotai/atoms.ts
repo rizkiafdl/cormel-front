@@ -9,6 +9,14 @@ export interface CourseData {
     cardNum: string;
     profileImg: string;
 }
+// Define the type for member data
+export interface MemberType {
+    img: string;
+    name: string;
+    title: string;
+}
+
+export const selectedMemberAtom = atom<MemberType | null>(null);
 
 // Atoms for modal state and selected course
 export const openAtom = atom(false);

@@ -1,5 +1,5 @@
 import ListProject from "@Components/RelationComponent/ListProject"
-import MainDashboard from "@Layouts/MainDashboard"
+import MainDashboard from "@/Layouts/MainDashboardLayouts"
 
 
 const RelationPage = () => {

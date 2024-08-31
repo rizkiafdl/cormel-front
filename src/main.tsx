@@ -13,14 +13,17 @@ import RelationPage from '@Pages/RelationPage/index.tsx';
 import ReviewPage from '@Pages/ReviewPage/index.tsx';
 import CourseDetail from '@Pages/CourseDetail/index.tsx';
 import UserDashboard from '@Pages/UserDashboard/index.tsx';
+import LoginPage from './Pages/LoginPage';
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/dashboard/:user' element={<UserDashboard />} />
           <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path='/dashboard/:user' element={<UserDashboard />} />
           <Route path="/course" element={<CoursePage />} />
           <Route path='/course/:detail' element={<CourseDetail />} />
           <Route path='/mentor' element={<MentorPage />} />
@@ -28,7 +31,6 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/relation' element={<RelationPage />} />
           <Route path='/review' element={<ReviewPage />} />
         </Routes>
-
       </BrowserRouter>
     </ThemeProvider>
 
