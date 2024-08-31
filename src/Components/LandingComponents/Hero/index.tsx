@@ -68,8 +68,9 @@ function HeroSection() {
                     <div className="hidden items-center gap-4 lg:flex">
                         <Button
                             onClick={() => navigate("/login")}
-                            variant="text">Log in</Button>
-                        <Button color="gray">buy now</Button>
+
+                            color="gray">Log in(Masuk Sini)</Button>
+                        <Button color="gray">Register( Belum Jadi )</Button>
                     </div>
                     <IconButton
                         variant="text"

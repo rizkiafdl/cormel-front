@@ -8,11 +8,12 @@ import {
     CardHeader,
     Typography,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
-// @icons
-import { CpuChipIcon } from "@heroicons/react/24/solid";
+
 
 function LoginCard() {
+    const navigate = useNavigate()
     return (
         <section className="px-8">
             <div className="container mx-auto h-screen grid place-items-center">
@@ -61,8 +62,10 @@ function LoginCard() {
                                     }}
                                 />
                             </div>
-                            <Button size="lg" color="gray" fullWidth>
-                                continue
+                            <Button
+                                onClick={() => navigate("/course")}
+                                size="lg" color="gray" fullWidth>
+                                Pencet Ini Langsung masuk ke dalem
                             </Button>
                             <Button
                                 variant="outlined"
