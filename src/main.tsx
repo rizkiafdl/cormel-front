@@ -1,18 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import './index.css'
+import '@/index.css'
 
 import { ThemeProvider } from "@material-tailwind/react";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LandingPage from './Pages/LandingPage/index.tsx';
-import CoursePage from './Pages/CoursePage/index.tsx';
-import MentorPage from './Pages/MentoringPage/index.tsx';
-import RelationPage from './Pages/RelationPage/index.tsx';
-import ReviewPage from './Pages/ReviewPage/index.tsx';
-import CourseDetail from './Pages/CourseDetail/index.tsx';
-import UserDashboard from './Pages/UserDashboard/index.tsx';
+import LandingPage from '@Pages/LandingPage/index.tsx';
+import CoursePage from '@Pages/CoursePage/index.tsx';
+import MentorPage from '@Pages/MentoringPage/index.tsx';
+import RelationPage from '@Pages/RelationPage/index.tsx';
+import ReviewPage from '@Pages/ReviewPage/index.tsx';
+import CourseDetail from '@Pages/CourseDetail/index.tsx';
+import UserDashboard from '@Pages/UserDashboard/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

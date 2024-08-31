@@ -1,11 +1,13 @@
-import HeroSection16 from "./HeroSection16"
-import TestimonialSection16 from "./Testimonial"
+
+import HeroSection from "@Components/LandingComponents/Hero"
+import TestimonialSection from "@Components/LandingComponents/Testimonial"
+
 
 const LandingPage = () => {
     return (
         <div>
-            <HeroSection16 />
-            <TestimonialSection16 />
+            <HeroSection />
+            <TestimonialSection />
         </div>
     )
 }

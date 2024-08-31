@@ -1,5 +1,7 @@
-import MyCourse from "../../Components/UserDashboardComponents/MyCourse"
-import MainDashboard from "../../Layouts/MainDashboard"
+import MyCourse from "@Components/UserDashboardComponents/MyCourse"
+import MainDashboard from "@Layouts/MainDashboard"
+
+
 
 const UserDashboard = () => {
     return (

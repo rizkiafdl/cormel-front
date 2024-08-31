@@ -63,7 +63,7 @@ const testimonials = [
     },
 ];
 
-export function TestimonialSection16() {
+export function TestimonialSection() {
     return (
         <section className="px-8 py-10 lg:py-28">
             <div className="container mx-auto">
@@ -123,4 +123,4 @@ export function TestimonialSection16() {
     );
 }
 
-export default TestimonialSection16;
+export default TestimonialSection;

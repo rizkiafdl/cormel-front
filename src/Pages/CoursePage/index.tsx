@@ -1,5 +1,5 @@
-import CourseList from "../../Components/CourseComponents/CourseList"
-import MainDashboard from "../../Layouts/MainDashboard"
+import CourseList from "@Components/CourseComponents/CourseList"
+import MainDashboard from "@Layouts/MainDashboard"
 
 const CoursePage = () => {
     return (

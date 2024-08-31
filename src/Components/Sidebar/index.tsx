@@ -28,7 +28,7 @@ export function SidebarDark() {
     };
 
     const LIST_ITEM_STYLES =
-        "text-gray-500 hover:text-white focus:text-white active:text-white hover:bg-opacity-20 focus:bg-opacity-20 active:bg-opacity-20";
+        "text-gray-500 hover:text-white focus:text-white active:text-white hover:bg-opacity-20 focus:bg-opacity-20 active:bg-opacity-20 md:text-sm ";
 
     return (
         <Card
@@ -92,7 +92,7 @@ export function SidebarDark() {
                         </ListItemPrefix>
                         <Typography
                             onClick={() => navigate("/dashboard/:user")}
-                            className="mr-auto font-normal text-inherit">
+                            className={`mr-auto  font-normal text-inherit`}>
                             Dashboard
                         </Typography>
                         <ChevronDownIcon

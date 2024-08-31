@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarDark } from "../../Components/Sidebar";
+import { SidebarDark } from "@Components/Sidebar";
 // Adjust the import path as needed
 
 interface MainDashboardProps {

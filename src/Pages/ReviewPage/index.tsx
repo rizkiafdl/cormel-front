@@ -1,5 +1,5 @@
-import { KpiCard } from '../../Components/ReviewComponents/kpiDashboard/index';
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
+import { KpiCard } from "@Components/ReviewComponents/kpiDashboard";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 const ReviewPage = () => {
     return (
         <div>

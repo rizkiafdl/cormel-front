@@ -35,7 +35,7 @@ function NavItem({ children }: NavItemPropsType) {
     );
 }
 
-function HeroSection16() {
+function HeroSection() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen((cur) => !cur);
 
@@ -159,4 +159,4 @@ function HeroSection16() {
     );
 }
 
-export default HeroSection16;
+export default HeroSection;
