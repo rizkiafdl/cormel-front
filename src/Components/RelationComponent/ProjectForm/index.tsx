@@ -23,17 +23,13 @@ function ProjectForm() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [cv, setCv] = useState(null);
+    const [cv,] = useState(null);
 
     const handleSubmit = (e: projectformdata) => {
 
         // Handle form submission logic here (e.g., send data to server)
         console.log({
-            firstName,
-            lastName,
-            email,
-            project: project.digitalAsset,
-            cv,
+            e
         });
         navigate("/"); // Redirect after submission, if necessary
     };
@@ -85,7 +81,7 @@ function ProjectForm() {
                             size="lg"
                             type="file"
                             crossOrigin
-                            onChange={(e) => setCv(e.target.files[0])}
+                            // onChange={(e) => setCv(e.target.files[0])}
                             required
                         />
                         <Button type="submit" variant="gradient" color="blue" fullWidth>
