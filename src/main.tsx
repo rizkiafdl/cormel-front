@@ -14,7 +14,6 @@ import ReviewPage from '@Pages/ReviewPage/index.tsx';
 import CourseDetail from '@Pages/CourseDetail/index.tsx';
 import UserDashboard from '@Pages/UserDashboard/index.tsx';
 import LoginPage from './Pages/LoginPage';
-import * as path from 'path';
 import ProjectForm from './Components/RelationComponent/ProjectForm';
 
 
