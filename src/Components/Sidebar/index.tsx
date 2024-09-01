@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
     List,
+    Card,
     Avatar,
     ListItem,
     Accordion,
@@ -13,6 +14,7 @@ import {
     Square2StackIcon,
     RectangleGroupIcon,
     ChatBubbleLeftEllipsisIcon,
+    Bars3Icon,
     ChevronLeftIcon,
     ChevronRightIcon,
 } from "@heroicons/react/24/solid";

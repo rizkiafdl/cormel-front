@@ -14,6 +14,8 @@ import ReviewPage from '@Pages/ReviewPage/index.tsx';
 import CourseDetail from '@Pages/CourseDetail/index.tsx';
 import UserDashboard from '@Pages/UserDashboard/index.tsx';
 import LoginPage from './Pages/LoginPage';
+import * as path from 'path';
+import ProjectForm from './Components/RelationComponent/ProjectForm';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -27,7 +29,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/course" element={<CoursePage />} />
           <Route path='/course/:detail' element={<CourseDetail />} />
           <Route path='/mentor' element={<MentorPage />} />
-
+          <Route path='/project-form' element={<ProjectForm />} />
           <Route path='/relation' element={<RelationPage />} />
           <Route path='/review' element={<ReviewPage />} />
         </Routes>

@@ -1,5 +1,3 @@
-
-// @material-tailwind/react
 import {
     Button,
     Typography,
@@ -9,6 +7,10 @@ import {
     IconButton,
     Input,
     TypographyProps,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
 } from "@material-tailwind/react";
 
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
@@ -17,7 +19,8 @@ import {
     FlagIcon,
     MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TABLE_ROW = [
     {
@@ -29,7 +32,6 @@ const TABLE_ROW = [
         volume: "$45.31B",
         market: "$915.61B",
         color: "green",
-        trend: 4,
     },
     {
         img: "/logos/eth.png",
@@ -103,8 +105,34 @@ const TABLE_HEAD = [
         customeStyle: "text-right",
     },
 ];
+interface Project {
+    digitalAsset: string;
+    detail: string;
+    price: string;
+    change: string;
+    volume: string;
+    market: string;
+}
 
 function ListProject() {
+    const [open, setOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+    const navigate = useNavigate();
+
+    const handleOpen = (project: Project) => {
+        setSelectedProject(project);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleFlagClick = (project: Project) => {
+        navigate("/project-form", { state: { project } });
+    };
+
     return (
         <section className="p-4">
             <Card className="h-full w-full">
@@ -242,15 +270,15 @@ function ListProject() {
                                             </td>
                                             <td className={classes}>
                                                 <div className="max-w-[12rem] ml-auto h-12 -translate-y-6">
-
+                                                    {/* Add trend chart or any additional info here */}
                                                 </div>
                                             </td>
                                             <td className={classes}>
                                                 <div className="flex justify-end gap-4">
-                                                    <IconButton variant="text" size="sm">
+                                                    <IconButton variant="text" size="sm" onClick={() => handleOpen({ digitalAsset, detail, price, change, volume, market })}>
                                                         <DocumentMagnifyingGlassIcon className="h-5 w-5 text-gray-900" />
                                                     </IconButton>
-                                                    <IconButton variant="text" size="sm">
+                                                    <IconButton variant="text" size="sm" onClick={() => handleFlagClick({ digitalAsset, detail, price, change, volume, market })}>
                                                         <FlagIcon className="h-5 w-5 text-gray-900" />
                                                     </IconButton>
                                                 </div>
@@ -263,6 +291,40 @@ function ListProject() {
                     </table>
                 </CardBody>
             </Card>
+
+            {/* Project Detail Modal */}
+            <Dialog open={open} handler={handleClose}>
+                <DialogHeader>Project Details</DialogHeader>
+                <DialogBody divider>
+                    {selectedProject && (
+                        <div className="space-y-4">
+                            <Typography variant="h6">
+                                {selectedProject.digitalAsset} - {selectedProject.detail}
+                            </Typography>
+                            <Typography>
+                                <strong>Price:</strong> {selectedProject.price}
+                            </Typography>
+                            <Typography>
+                                <strong>Change:</strong> {selectedProject.change}
+                            </Typography>
+                            <Typography>
+                                <strong>Volume:</strong> {selectedProject.volume}
+                            </Typography>
+                            <Typography>
+                                <strong>Market Cap:</strong> {selectedProject.market}
+                            </Typography>
+                        </div>
+                    )}
+                </DialogBody>
+                <DialogFooter>
+                    <Button variant="text" color="red" onClick={handleClose} className="mr-1">
+                        <span>Close</span>
+                    </Button>
+                    <Button variant="gradient" color="green" onClick={handleClose}>
+                        <span>Ok</span>
+                    </Button>
+                </DialogFooter>
+            </Dialog>
         </section>
     );
 }

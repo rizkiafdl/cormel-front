@@ -7,8 +7,7 @@ const UserDashboard = () => {
     return (
         <MainDashboard>
             <MyCourse />
-            <MyCourse />
-            <MyCourse />
+
         </MainDashboard>
     )
 }
