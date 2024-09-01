@@ -5,9 +5,9 @@ const CoursePage = () => {
     return (
         <div>
             <MainDashboard>
-                <CourseList />
-                <CourseList />
-                <CourseList />
+                <CourseList title="Top Courses" />
+                <CourseList title="Recomended For You" />
+                <CourseList title="Dive Deep Into Other Area" />
             </MainDashboard>
         </div>
     )

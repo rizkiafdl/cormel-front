@@ -1,16 +1,14 @@
-// CourseList.tsx
 import { Card, CardHeader, CardBody, Typography, Button } from '@material-tailwind/react';
 import CourseCard from '@Components/CourseComponents/CourseCard';
 import CourseModal from '@Components/CourseComponents/ModalCourse';
 import { CourseData } from '@/Jotai/atoms';
 
-
 const data: CourseData[] = [
     {
         cardNum: "#1",
         profileImg: "https://www.material-tailwind.com/img/avatar1.jpg",
-        name: "Tina Andrew",
-        desc: "Creator",
+        name: "FRONT END",
+        desc: "Beginer",
         imgs: [
             "/image/web3-card-1.svg",
             "/image/web3-card-2.svg",
@@ -41,18 +39,22 @@ const data: CourseData[] = [
     },
 ];
 
-function CourseList() {
+interface CourseListProps {
+    title?: string; // Added prop for dynamic title
+}
+
+function CourseList({ title }: CourseListProps) {
     return (
-        <section className="">
+        <section className="py-4">
             <Card shadow={false} className="border border-gray-300">
                 <CardHeader
                     shadow={false}
                     floated={false}
-                    className="flex overflow-visible gap-y-4 flex-wrap items-start justify-between rounded-none"
+                    className="flex flex-wrap justify-between items-start gap-y-4 rounded-none p-4"
                 >
                     <div>
                         <Typography color="blue-gray" variant="h1" className="!text-2xl mb-1">
-                            Top Courses
+                            {title} {/* Dynamic title */}
                         </Typography>
                         <Typography color="blue-gray" className="!text-lg font-normal text-gray-600">
                             The most sought-after collections across the entire ecosystem.
@@ -70,10 +72,12 @@ function CourseList() {
                         </Button>
                     </div>
                 </CardHeader>
-                <CardBody className="grid xl:grid-cols-3 grid-cols-1 gap-4 px-4">
-                    {data.map((props, key) => (
-                        <CourseCard key={key} {...props} />
-                    ))}
+                <CardBody className="overflow-x-auto p-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                        {data.map((props, key) => (
+                            <CourseCard key={key} {...props} />
+                        ))}
+                    </div>
                 </CardBody>
                 <CourseModal />
             </Card>

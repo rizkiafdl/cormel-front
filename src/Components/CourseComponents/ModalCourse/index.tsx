@@ -1,4 +1,3 @@
-// CourseModal.tsx
 import {
     Dialog,
     DialogHeader,
@@ -7,10 +6,12 @@ import {
     Avatar,
     Button,
     Typography,
+    IconButton
 } from '@material-tailwind/react';
 import { useAtom } from 'jotai';
 import { openAtom, selectedCourseAtom } from '@/Jotai/atoms';
 import { useNavigate } from 'react-router-dom';
+
 
 function CourseModal() {
     const [open, setOpen] = useAtom(openAtom);
@@ -24,20 +25,64 @@ function CourseModal() {
     return (
         <Dialog open={open} handler={handleClose}>
             <DialogHeader>{selectedCourse?.name}</DialogHeader>
-            <DialogBody divider>
-                <Avatar
-                    src={selectedCourse?.profileImg}
-                    alt={selectedCourse?.name}
-                    variant="circular"
-                    size="xxl"
-                    className="mx-auto mb-6 object-top"
-                />
-                <Typography variant="h5" color="blue-gray" className="text-center">
-                    {selectedCourse?.name}
-                </Typography>
-                <Typography color="gray" className="mt-2 text-center">
-                    More detailed information about {selectedCourse?.name} can go here.
-                </Typography>
+            <DialogBody className="grid grid-cols-2 gap-4 items-start" divider>
+                {/* Left section: Profile information */}
+                <div className="flex flex-col translate-y-[45%] items-center ">
+                    <Avatar
+                        src={selectedCourse?.profileImg}
+                        alt={selectedCourse?.name}
+                        variant="circular"
+                        size="xxl"
+                        className="mx-auto mb-6 object-top"
+                    />
+                    <Typography variant="h5" color="blue-gray" className="text-center">
+                        {selectedCourse?.name}
+                    </Typography>
+                </div>
+
+                {/* Right section: Custom roadmap visualization */}
+                <div>
+                    <Typography variant="h6" color="blue-gray" className="mb-4 text-xl">
+                        Course Roadmap
+                    </Typography>
+                    <div className="space-y-4">
+                        <div className="flex items-start space-x-3">
+                            <p>Icon3</p>
+                            <div>
+                                <Typography variant="h6" color="blue-gray">
+                                    Introduction
+                                </Typography>
+                                <Typography color="gray">
+                                    Overview of the course content and structure.
+                                </Typography>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start space-x-3">
+                            <p>Icon1</p>
+                            <div>
+                                <Typography variant="h6" color="blue-gray">
+                                    Core Modules
+                                </Typography>
+                                <Typography color="gray">
+                                    In-depth modules covering key topics.
+                                </Typography>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start space-x-3">
+                            <p>Icon2</p>
+                            <div>
+                                <Typography variant="h6" color="blue-gray">
+                                    Final Project
+                                </Typography>
+                                <Typography color="gray">
+                                    A comprehensive project that applies all the knowledge gained.
+                                </Typography>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </DialogBody>
             <DialogFooter>
                 <Button variant="text" color="black" onClick={() => navigate("/course/:detail")} className="mr-1">

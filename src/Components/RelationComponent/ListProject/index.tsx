@@ -77,29 +77,26 @@ const TABLE_ROW = [
 
 const TABLE_HEAD = [
     {
-        head: "Digital Asset",
+        head: "Project Name",
         customeStyle: "!text-left",
     },
     {
-        head: "Price",
+        head: "Deadline",
         customeStyle: "text-right",
     },
     {
-        head: "Change",
+        head: "People",
         customeStyle: "text-right",
     },
     {
-        head: "Volume",
+        head: "Status",
         customeStyle: "text-right",
     },
     {
-        head: "Market Cap",
+        head: "Free/Paid",
         customeStyle: "text-right",
     },
-    {
-        head: "Trend",
-        customeStyle: "text-right",
-    },
+
     {
         head: "Actions",
         customeStyle: "text-right",
@@ -268,11 +265,7 @@ function ListProject() {
                                                     {market}
                                                 </Typography>
                                             </td>
-                                            <td className={classes}>
-                                                <div className="max-w-[12rem] ml-auto h-12 -translate-y-6">
-                                                    {/* Add trend chart or any additional info here */}
-                                                </div>
-                                            </td>
+
                                             <td className={classes}>
                                                 <div className="flex justify-end gap-4">
                                                     <IconButton variant="text" size="sm" onClick={() => handleOpen({ digitalAsset, detail, price, change, volume, market })}>
