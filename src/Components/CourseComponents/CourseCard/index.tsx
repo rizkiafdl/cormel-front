@@ -1,14 +1,14 @@
 // Web3Card.tsx
-import { Button, Avatar, Card, CardBody, Typography } from '@material-tailwind/react';
+import { Button, Avatar, Card, CardBody, Typography, Chip } from '@material-tailwind/react';
 import { useSetAtom } from 'jotai';
 import { CourseData, openAtom, selectedCourseAtom } from "@/Jotai/atoms";
 
-function CourseCard({ name, desc, imgs, cardNum, profileImg }: CourseData) {
+function CourseCard({ name, desc, imgs, cardNum, profileImg, courseOutline, slug }: CourseData) {
     const setOpen = useSetAtom(openAtom);
     const setSelectedCourse = useSetAtom(selectedCourseAtom);
 
     const handleOpen = () => {
-        setSelectedCourse({ name, desc, imgs, cardNum, profileImg });
+        setSelectedCourse({ name, desc, imgs, cardNum, profileImg, courseOutline, slug });
         setOpen(true);
     };
 
@@ -31,15 +31,15 @@ function CourseCard({ name, desc, imgs, cardNum, profileImg }: CourseData) {
                         </div>
                     </div>
                     <Button size="sm" variant="outlined" className="border-gray-300" onClick={handleOpen}>
-                        See collection
+                        Course Detail
                     </Button>
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                    {imgs.map((img, key) => (
-                        <img key={key} src={img} className="h-full w-full object-cover rounded-xl" alt={name} />
-                    ))}
+                <div className="grid grid-cols-3 gap-4">
+                    <Chip value={"Beginner"} variant="outlined" size={"sm"} className='text-center' />
+                    <Chip value={"NPM"} variant="outlined" size={"sm"} className='text-center' />
+                    <Chip value={"React.js"} variant="outlined" size={"sm"} className='text-center' />
                 </div>
-            </CardBody>
+            </CardBody >
         </Card>
     );
 }

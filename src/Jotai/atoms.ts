@@ -8,7 +8,11 @@ export interface CourseData {
     imgs: string[];
     cardNum: string;
     profileImg: string;
+    courseOutline: { topic: string; videoLink: string }[];
+    slug: string; // New field for the slug
 }
+
+
 // Define the type for member data
 export interface MemberType {
     img: string;

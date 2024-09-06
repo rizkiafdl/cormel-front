@@ -8,7 +8,15 @@ const data: CourseData[] = [
         cardNum: "#1",
         profileImg: "https://www.material-tailwind.com/img/avatar1.jpg",
         name: "FRONT END",
-        desc: "Beginer",
+        desc: "rizkiafd",
+        slug: "front-end",
+        courseOutline: [
+            { topic: "What is FrontEND", videoLink: "https://www.youtube.com/watch?v=9Y3yaoi9rUQ" },
+            { topic: "Introduction To HTML", videoLink: "https://example.com/video2" },
+            { topic: "Introduction To CSS", videoLink: "https://example.com/video3" },
+            { topic: "Introduction To JavaScript", videoLink: "https://example.com/video4" },
+            // Add more topics as needed
+        ],
         imgs: [
             "/image/web3-card-1.svg",
             "/image/web3-card-2.svg",
@@ -18,8 +26,15 @@ const data: CourseData[] = [
     {
         cardNum: "#2",
         profileImg: "https://www.material-tailwind.com/image/avatar2.jpg",
-        name: "Linde Michael",
-        desc: "Creator",
+        name: "Cloud Computing",
+        slug: "cloud-computing",
+        desc: "Ascendia Zorg",
+        courseOutline: [
+            { topic: "What is Cloud Computing", videoLink: "https://example.com/video5" },
+            { topic: "Introduction To HTML", videoLink: "https://example.com/video6" },
+            { topic: "Introduction To CSS", videoLink: "https://example.com/video7" },
+            { topic: "Introduction To JavaScript", videoLink: "https://example.com/video8" },
+        ],
         imgs: [
             "/image/web3-card-5-mini.svg",
             "/image/web3-card-6-mini.svg",
@@ -29,8 +44,33 @@ const data: CourseData[] = [
     {
         cardNum: "#3",
         profileImg: "https://www.material-tailwind.com/image/avatar7.svg",
-        name: "Misha Stam",
-        desc: "Creator",
+        name: "Machine Learning",
+        slug: "machine-learning",
+        desc: "by Tasya Aulia",
+        courseOutline: [
+            { topic: "What is Machine Learning", videoLink: "https://example.com/video9" },
+            { topic: "Introduction To HTML", videoLink: "https://example.com/video10" },
+            { topic: "Introduction To CSS", videoLink: "https://example.com/video11" },
+            { topic: "Introduction To JavaScript", videoLink: "https://example.com/video12" },
+        ],
+        imgs: [
+            "/image/web3-card-4.svg",
+            "/image/web3-card-4.svg",
+            "/image/web3-card-4.svg",
+        ],
+    },
+    {
+        cardNum: "#4",
+        profileImg: "https://www.material-tailwind.com/image/avatar7.svg",
+        name: "Back End",
+        slug: "back-end",
+        desc: "by rizkiafd",
+        courseOutline: [
+            { topic: "What is Back End", videoLink: "https://example.com/video13" },
+            { topic: "Introduction To HTML", videoLink: "https://example.com/video14" },
+            { topic: "Introduction To CSS", videoLink: "https://example.com/video15" },
+            { topic: "Introduction To JavaScript", videoLink: "https://example.com/video16" },
+        ],
         imgs: [
             "/image/web3-card-4.svg",
             "/image/web3-card-4.svg",
@@ -38,6 +78,7 @@ const data: CourseData[] = [
         ],
     },
 ];
+
 
 interface CourseListProps {
     title?: string; // Added prop for dynamic title

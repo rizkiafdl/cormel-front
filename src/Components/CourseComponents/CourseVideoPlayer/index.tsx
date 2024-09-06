@@ -1,13 +1,40 @@
-import { Card, Typography, List, ListItem, Avatar, Button, Input, Tabs, TabsHeader, TabsBody, Tab, TabPanel, IconButton } from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { FlagIcon } from "@heroicons/react/24/solid"; // Example using Heroicons
+// CourseVideoPlayer.tsx
 
+import {
+    Card,
+    Typography,
+    List,
+    ListItem,
+    Avatar,
+    Button,
+    Input,
+    Tabs,
+    TabsHeader,
+    TabsBody,
+    Tab,
+    TabPanel,
+    IconButton
+} from "@material-tailwind/react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { FlagIcon } from "@heroicons/react/24/solid";
+import ReactPlayer from "react-player";
 export function CourseVideoPlayer() {
     const navigate = useNavigate();
+    const { state } = useLocation();
+    const { selectedCourse } = state || {}; // Get the selected course from the passed state
+
+    const [selectedVideo, setSelectedVideo] = useState("");
+
+    useEffect(() => {
+        // Set the first video as the selected video when the component mounts
+        if (selectedCourse?.courseOutline?.length > 0) {
+            setSelectedVideo(selectedCourse.courseOutline[0].videoLink);
+        }
+    }, [selectedCourse]);
+
     const [code, setCode] = useState("");
     const [feedback, setFeedback] = useState("");
-    const [selectedVideo, setSelectedVideo] = useState("Video Title 1"); // Track the selected video
 
     const handleRunCode = () => {
         // Simulate code feedback
@@ -21,13 +48,13 @@ export function CourseVideoPlayer() {
 
             {/* Video Section */}
             <Card className="w-full h-64 sm:h-80 md:h-96 lg:h-[30rem]">
-                <video
-                    className="w-full h-full"
-                    controls
-                    src="your-video-source.mp4"
-                >
-                    Your browser does not support the video tag.
-                </video>
+                <ReactPlayer
+                    url={selectedVideo}
+                    width={"100%"} height={"700px"}
+                    playing={true}
+                    controls={false}
+                    style={{ opacity: "70%" }}
+                />
             </Card>
 
             {/* Tabs Section: Course Contents & Try Your Code */}
@@ -42,24 +69,23 @@ export function CourseVideoPlayer() {
                         <TabPanel value="content" className="h-64 overflow-y-auto">
                             <Typography variant="h5" className="mb-4">Course Contents</Typography>
                             <List>
-                                {["Video Title 1", "Video Title 2", "Video Title 3"].map((title, index) => (
+                                {selectedCourse?.courseOutline?.map((outline, index) => (
                                     <ListItem
                                         key={index}
-                                        className={`flex items-center justify-between ${selectedVideo === title ? "bg-blue-100" : ""}`}
-                                        onClick={() => setSelectedVideo(title)}
+                                        className={`flex items-center justify-between ${selectedVideo === outline.videoLink ? "bg-blue-100" : ""}`}
+                                        onClick={() => setSelectedVideo(outline.videoLink)}
                                     >
                                         <div className="flex items-center">
                                             <Avatar variant="rounded" src={`thumbnail${index + 1}.jpg`} alt={`Video Thumbnail ${index + 1}`} className="mr-4" />
-                                            <Typography>{title}</Typography>
+                                            <Typography>{outline.topic}</Typography>
                                         </div>
-                                        {selectedVideo === title && (
+                                        {selectedVideo === outline.videoLink && (
                                             <IconButton variant="text" color="blue">
                                                 <FlagIcon className="w-5 h-5" />
                                             </IconButton>
                                         )}
                                     </ListItem>
                                 ))}
-                                {/* Add more ListItem components for more videos */}
                             </List>
                         </TabPanel>
 
@@ -67,10 +93,10 @@ export function CourseVideoPlayer() {
                         <TabPanel value="code">
                             <Typography variant="h5" className="mb-4">Try Your Code</Typography>
                             <Input
+                                crossOrigin
                                 label="Write your code here"
                                 value={code}
                                 onChange={(e) => setCode(e.target.value)}
-                                crossOrigin
                             />
                             <Button onClick={handleRunCode} className="mt-4">Get Feedback</Button>
                             {feedback && (
@@ -86,3 +112,5 @@ export function CourseVideoPlayer() {
         </div>
     );
 }
+
+export default CourseVideoPlayer;
