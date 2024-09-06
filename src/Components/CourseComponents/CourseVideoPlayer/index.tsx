@@ -49,7 +49,7 @@ export function CourseVideoPlayer() {
                                             </IconButton>
                                         )}
                                     </ListItem>
-                                ))}
+                                ))} 
                             </List>
                         </TabPanel>
 
